@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/parentLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,7 +13,55 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-    </RelativeLayout>
+        <FrameLayout
+            android:id="@+id/text_relative_layout"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp"
+            android:layout_height="100dp">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/productId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product ID : 563"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Name: Apple"
+                android:layout_below="@id/productId"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/productDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Des: This is an apple"
+                android:layout_below="@id/productName"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                />
+
+        </FrameLayout>
+
+    </FrameLayout>
 
 
 </layout>

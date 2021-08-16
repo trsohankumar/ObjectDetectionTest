@@ -17,12 +17,12 @@ class Draw(context: Context?, var rect: Rect, var objectName: String ) : View(co
 
     private fun init(){
         boundaryPaint = Paint()
-        boundaryPaint.color = Color.BLACK
+        boundaryPaint.color = Color.RED
         boundaryPaint.strokeWidth = 10f
         boundaryPaint.style = Paint.Style.STROKE
 
         textPaint = Paint()
-        textPaint.color = Color.BLACK
+        textPaint.color = Color.RED
         textPaint.textSize = 50f
         textPaint.style = Paint.Style.FILL
     }
