@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Size
 import android.view.View
+import android.widget.ImageView
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
@@ -24,6 +25,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import kotlin.random.Random
 
 const val BASE_URL = "https://jsonplaceholder.typicode.com/"
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         },ContextCompat.getMainExecutor(this))
 
         val localModel = LocalModel.Builder()
-            .setAssetFilePath("object_detection.tflite").build()
+            .setAssetFilePath("model.tflite").build()
 
         val customObjectDetectorOptions = CustomObjectDetectorOptions.Builder(localModel)
             .setDetectorMode(CustomObjectDetectorOptions.STREAM_MODE)
@@ -68,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             .setClassificationConfidenceThreshold(0.5f)
             .setMaxPerObjectLabelCount(3)
             .build()
+
 
         objectDetector = ObjectDetection.getClient(customObjectDetectorOptions)
     }
@@ -92,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
             if(image != null){
                 val processImage = InputImage.fromMediaImage(image,rotationDegrees)
-
+                val pointerImage = findViewById<ImageView>(R.id.pointerImage)
                 objectDetector
                     .process(processImage)
                     .addOnSuccessListener { objects->
@@ -100,13 +103,57 @@ class MainActivity : AppCompatActivity() {
                         // main logic after detecting object
                         for(i in objects){
 
-//                            getData(map)
-                            if(binding.parentLayout.childCount > 1){
-                                binding.parentLayout.removeViewAt(1)
+////                            getData(map)
+                            if(binding.parentLayout.childCount > 3){
+                                binding.parentLayout.removeViewAt(3)
                             }
-                            val element = Draw(this,i.boundingBox,i.labels.firstOrNull()?.text?: "Undefined")
-                            Log.i("count","Rectangle built")
-                            binding.parentLayout.addView(element)
+//                            val element = Draw(this,i.boundingBox,i.labels.firstOrNull()?.text?: "Undefined")
+                            val nameOfProduct = i.labels.firstOrNull()?.text?: "Undefined"
+
+                            if(nameOfProduct != "Undefined"){
+
+                                pointerImage.visibility = View.VISIBLE
+                                pointerImage.x = i.boundingBox.left.toFloat()
+                                pointerImage.y = i.boundingBox.bottom.toFloat()
+
+                                binding.productName.visibility = View.VISIBLE
+                                binding.productName.text = i.labels.firstOrNull()?.text
+
+                                binding.energy.visibility = View.VISIBLE
+                                binding.energy.text = "Energy     10Kcal"
+
+                                binding.carbs.visibility = View.VISIBLE
+                                binding.carbs.text = "Carbs       5gm"
+
+                                binding.sugar.visibility = View.VISIBLE
+                                binding.sugar.text = "Sugar       7gm"
+
+                                binding.protein.visibility = View.VISIBLE
+                                binding.protein.text = "Protein    3gm"
+
+                                binding.sodium.visibility = View.VISIBLE
+                                binding.sodium.text = "Sodium     15gm"
+
+                            }
+                            else if(nameOfProduct == "Undefined" || i == null){
+
+                                pointerImage.visibility = View.GONE
+
+                                binding.productName.visibility = View.GONE
+
+                                binding.energy.visibility = View.GONE
+
+                                binding.carbs.visibility = View.GONE
+
+                                binding.sugar.visibility = View.GONE
+
+                                binding.protein.visibility = View.GONE
+
+                                binding.sodium.visibility = View.GONE
+
+                            }
+
+//                            binding.parentLayout.addView(element)
 
                         }
 
@@ -144,15 +191,15 @@ class MainActivity : AppCompatActivity() {
                 Log.i("here1" , id + " " + name + " " + des)
 
 
-                binding.productId.visibility = View.VISIBLE
-                binding.productName.visibility = View.VISIBLE
-                binding.productDes.visibility = View.VISIBLE
-
-                binding.textRelativeLayout.setBackgroundResource(R.drawable.layout_background)
-
-                binding.productId.text = "Id :" + id
-                binding.productName.text = "Name :" +name
-                binding.productDes.text = des
+//                binding.productId.visibility = View.VISIBLE
+//                binding.productName.visibility = View.VISIBLE
+//                binding.productDes.visibility = View.VISIBLE
+//
+//                binding.textRelativeLayout.setBackgroundResource(R.drawable.layout_background)
+//
+//                binding.productId.text = "Id :" + id
+//                binding.productName.text = "Name :" +name
+//                binding.productDes.text = des
 
             }
 

@@ -13,26 +13,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/pointerImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pointer"/>
+
         <FrameLayout
             android:id="@+id/text_relative_layout"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="150dp"
-            android:layout_height="100dp">
-
-            <TextView
-                android:visibility="gone"
-                android:id="@+id/productId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product ID : 563"
-                android:layout_centerHorizontal="true"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                />
+            android:background="@color/blue"
+            android:layout_marginTop="180dp"
+            >
 
             <TextView
                 android:visibility="gone"
@@ -40,24 +36,65 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Product Name: Apple"
-                android:layout_below="@id/productId"
-                android:layout_centerHorizontal="true"
+                android:padding="20dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white"/>
+
             <TextView
                 android:visibility="gone"
-                android:id="@+id/productDes"
+                android:id="@+id/energy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Product Des: This is an apple"
-                android:layout_below="@id/productName"
-                android:layout_centerHorizontal="true"
+                android:text="Energy"
+                android:layout_marginTop="30dp"
+                android:padding="20dp"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/carbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carbs"
+                android:layout_marginTop="60dp"
+                android:padding="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/sugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sugar"
+                android:layout_marginTop="90dp"
+                android:padding="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Protein"
+                android:layout_marginTop="120dp"
+                android:padding="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/sodium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sodium"
+                android:layout_marginTop="150dp"
+                android:padding="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
 
         </FrameLayout>
 
