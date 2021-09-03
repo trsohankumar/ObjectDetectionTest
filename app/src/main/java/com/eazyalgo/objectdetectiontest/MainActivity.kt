@@ -13,6 +13,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.eazyalgo.objectdetectiontest.databinding.ActivityMainBinding
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.mlkit.common.model.LocalModel
@@ -31,16 +32,18 @@ import kotlin.random.Random
 const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+   // private lateinit var binding: ActivityMainBinding
+    private lateinit var binding:ActivityMainBinding
     private lateinit var objectDetector: ObjectDetector
     private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
+    private var similarProductsAdapter:SimilarProductsAdapter? = null
+    private var similarProductsList:ArrayList<SimilarProduct>? = null
     val map = HashMap<Int,String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         map.put(1,"Apple")
         map.put(2,"Orange")
         map.put(3,"Banana")
@@ -70,6 +73,9 @@ class MainActivity : AppCompatActivity() {
             .setClassificationConfidenceThreshold(0.5f)
             .setMaxPerObjectLabelCount(3)
             .build()
+
+        similarProductsList = Products.defaultProductsList()
+        setUpSimilarProducts()
 
 
         objectDetector = ObjectDetection.getClient(customObjectDetectorOptions)
@@ -104,8 +110,8 @@ class MainActivity : AppCompatActivity() {
                         for(i in objects){
 
 ////                            getData(map)
-                            if(binding.parentLayout.childCount > 3){
-                                binding.parentLayout.removeViewAt(3)
+                            if(binding.parentLayout.childCount > 5){
+                                binding.parentLayout.removeViewAt(5)
                             }
 //                            val element = Draw(this,i.boundingBox,i.labels.firstOrNull()?.text?: "Undefined")
                             val nameOfProduct = i.labels.firstOrNull()?.text?: "Undefined"
@@ -134,6 +140,12 @@ class MainActivity : AppCompatActivity() {
                                 binding.sodium.visibility = View.VISIBLE
                                 binding.sodium.text = "Sodium     15gm"
 
+                                binding.cvSimilarProduct.visibility = View.VISIBLE
+                                binding.rvSimilarProducts.visibility = View.VISIBLE
+                              //  similarProductsList = Products.defaultProductsList()
+
+
+
                             }
                             else if(nameOfProduct == "Undefined" || i == null){
 
@@ -150,6 +162,10 @@ class MainActivity : AppCompatActivity() {
                                 binding.protein.visibility = View.GONE
 
                                 binding.sodium.visibility = View.GONE
+
+                                binding.cvSimilarProduct.visibility = View.GONE
+                                binding.rvSimilarProducts.visibility = View.GONE
+
 
                             }
 
@@ -216,5 +232,11 @@ class MainActivity : AppCompatActivity() {
         val min = 1
 
         return rand.nextInt(max - min + 1) + min
+    }
+
+    private fun setUpSimilarProducts(){
+        binding.rvSimilarProducts.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+        similarProductsAdapter = SimilarProductsAdapter(similarProductsList!!,this)
+        binding.rvSimilarProducts.adapter = similarProductsAdapter
     }
 }
