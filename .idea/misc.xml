@@ -10,10 +10,12 @@
         <entry key="..\:/Users/sohan/Documents/AndroidProjects/ObjectDetectionTest/app/src/main/res/drawable/similar_products_background.xml" value="0.3885416666666667" />
         <entry key="..\:/Users/sohan/Documents/AndroidProjects/ObjectDetectionTest/app/src/main/res/layout/activity_main.xml" value="0.3723958333333333" />
         <entry key="..\:/Users/sohan/Documents/AndroidProjects/ObjectDetectionTest/app/src/main/res/layout/similar_products.xml" value="0.3723958333333333" />
+        <entry key="..\:/gifImplementation/app/src/main/res/layout/activity_main.xml" value="0.16574074074074074" />
+        <entry key="..\:/gifImplementation/app/src/main/res/layout/similar_products.xml" value="0.16574074074074074" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

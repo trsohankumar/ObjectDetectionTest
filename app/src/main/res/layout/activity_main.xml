@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
+
+
     <FrameLayout
         android:id="@+id/parentLayout"
         android:layout_width="match_parent"
@@ -14,12 +16,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+
+        //GIF IMPLEMENTATION
+<!--        <pl.droidsonroids.gif.GifImageView-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_marginTop="150dp"-->
+<!--            android:src="@drawable/cocacola"-->
+<!--            android:layout_gravity="clip_vertical"-->
+<!--            />-->
+
         <ImageView
             android:visibility="gone"
             android:id="@+id/pointerImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/pointer"/>
+
 
         <FrameLayout
             android:id="@+id/text_relative_layout"
@@ -41,6 +54,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"/>
+
 
             <TextView
                 android:visibility="gone"
@@ -98,7 +112,6 @@
                 android:textColor="@color/white"/>
 
         </FrameLayout>
-
 
         <TextView
             android:visibility="gone"
