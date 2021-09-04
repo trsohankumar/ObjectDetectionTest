@@ -100,27 +100,20 @@
         </FrameLayout>
 
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvSimilarProduct"
+        <TextView
             android:visibility="gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
+            android:id="@+id/tvSimilarProduct"
+            android:layout_width="158dp"
+            android:layout_height="31dp"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/blue"
-            app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/rvSimilarProducts"
-            app:layout_constraintStart_toStartOf="parent">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:text="SIMILAR PRODUCTS"
-                android:textColor="@color/white" />
-        </androidx.cardview.widget.CardView>
+            android:layout_marginBottom="125dp"
+            android:background="@drawable/similar_products_background"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_marginStart="15dp"
+            android:text="Similar Products"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:paddingStart="3dp"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -128,15 +121,10 @@
             android:id="@+id/rvSimilarProducts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_gravity="bottom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
-
-
-
 
     </FrameLayout>
 

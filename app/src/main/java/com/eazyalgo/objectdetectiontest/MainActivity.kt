@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
                                 binding.sodium.visibility = View.VISIBLE
                                 binding.sodium.text = "Sodium     15gm"
 
-                                binding.cvSimilarProduct.visibility = View.VISIBLE
+                                binding.tvSimilarProduct.visibility = View.VISIBLE
                                 binding.rvSimilarProducts.visibility = View.VISIBLE
                               //  similarProductsList = Products.defaultProductsList()
 
@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity() {
 
                                 binding.sodium.visibility = View.GONE
 
-                                binding.cvSimilarProduct.visibility = View.GONE
+                                binding.tvSimilarProduct.visibility = View.GONE
                                 binding.rvSimilarProducts.visibility = View.GONE
 
 
