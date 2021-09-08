@@ -110,8 +110,8 @@ class MainActivity : AppCompatActivity() {
                         for(i in objects){
 
 ////                            getData(map)
-                            if(binding.parentLayout.childCount > 5){
-                                binding.parentLayout.removeViewAt(5)
+                            if(binding.parentLayout.childCount > 6){
+                                binding.parentLayout.removeViewAt(6)
                             }
 //                            val element = Draw(this,i.boundingBox,i.labels.firstOrNull()?.text?: "Undefined")
                             val nameOfProduct = i.labels.firstOrNull()?.text?: "Undefined"
@@ -124,6 +124,8 @@ class MainActivity : AppCompatActivity() {
 
                                 binding.productName.visibility = View.VISIBLE
                                 binding.productName.text = i.labels.firstOrNull()?.text
+
+                                binding.gifImage.visibility= View.VISIBLE
 
                                 binding.energy.visibility = View.VISIBLE
                                 binding.energy.text = "Energy     10Kcal"
